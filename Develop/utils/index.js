@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateMarkdown = require("./generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -22,61 +23,43 @@ const names = [
 ]
 
 // TODO: Create a function to write README file
-inquirer
-    .prompt([
-        {
-            type: "input",
-            message: questions[0],
-            name: names[0],
-        },
-        {
-            type: "input",
-            message: questions[1],
-            name: names[1],
-        },
-        {
-            type: "input",
-            message: questions[2],
-            name: names[2],
-        },
-        {
-            type: "input",
-            message: questions[3],
-            name: names[3],
-        },
-        {
-            type: "input",
-            message: questions[4],
-            name: names[4],
-        },
-        {
-            type: "input",
-            message: questions[5],
-            name: names[5],
-        },
-        {
-            type: "list",
-            message: "What liscense would you like? ",
-            name: "liscense",
-            choices: ["MIT", "Apache"],
-        },
-    ])
-    .then(function (data)
-    {
-        console.log(data);
-
-        fs.writeFile("user.md", JSON.stringify(data), function (err)
-        {
-            err ? console.error(err) : console.log("Success");
-        })
-
+const questionArr = [];
+for (let i = 0; i < questions.length; i++)
+{
+    questionArr.push({
+        type: "input",
+        message: questions[i],
+        name: names[i],
     })
+}
+
 
 
 // writeToFile;
 
 // TODO: Create a function to initialize app
-//function init() { }
+function init()
+{
+
+    inquirer
+        .prompt([...questionArr,
+        {
+            type: "list",
+            message: "What liscense would you like? ",
+            name: "liscense",
+            choices: ["MIT", "Apache", "None"],
+        }])
+        .then(function (data)
+        {
+            console.log(data);
+
+            fs.writeFile("user.md", generateMarkdown(data), function (err)
+            {
+                err ? console.error(err) : console.log("Success");
+            })
+
+        })
+}
 
 // Function call to initialize app
-//init();
+init();
