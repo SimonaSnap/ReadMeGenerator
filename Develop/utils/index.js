@@ -10,7 +10,10 @@ const questions = [
     "What are the instillation instructions for this application? ",
     "How would a user use this application? ",
     "What are the contribution guidelines? ",
-    "Are there any tests for this application? "
+    "Are there any tests for this application? ",
+    "What is your GitHub username? ",
+    "What is your GitHub link? ",
+    "What is your email address? "
 ];
 
 const names = [
@@ -19,7 +22,10 @@ const names = [
     "instillation",
     "usage",
     "contribution",
-    "tests"
+    "tests",
+    "username",
+    "link",
+    "email",
 ]
 
 // TODO: Create a function to write README file
@@ -47,7 +53,7 @@ function init()
             type: "list",
             message: "What liscense would you like? ",
             name: "liscense",
-            choices: ["MIT", "Apache", "None"],
+            choices: ["MIT", "BSD 2-Clause License", "BSD 3-Clause License", "Boost Software License", "The Unlicense", "None"],
         }])
         .then(function (data)
         {
