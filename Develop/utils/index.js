@@ -12,8 +12,8 @@ const questions = [
     "What are the contribution guidelines? ",
     "Are there any tests for this application? ",
     "What is your GitHub username? ",
-    "What is your GitHub link? ",
-    "What is your email address? "
+    "What is your email address? ",
+    "What is your fullname? "
 ];
 
 const names = [
@@ -24,8 +24,8 @@ const names = [
     "contribution",
     "tests",
     "username",
-    "link",
     "email",
+    "fullname",
 ]
 
 // TODO: Create a function to write README file
