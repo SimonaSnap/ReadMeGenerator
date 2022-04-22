@@ -105,26 +105,56 @@ ${allLi[7]}`;
   }
 }
 
+function renderDeployedPage(deployment)
+{
+  if (deployment == "This project does not have a deployed page")
+  {
+    return ""
+  }
+  else
+  {
+    return `[Deployed Page](${deployment})`
+  }
+}
+
+function renderScreenshots(screenshots, altText)
+{
+  if (screenshots == "No")
+  {
+    return ""
+  }
+  else
+  {
+    return `![A screenshot of the application](./assets/Develop/README example.PNG "${altText}")`
+  }
+}
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data)
 {
+  var altText = data.alttext;
   var username = data.fullname;
   return `# ${data.name}
 ${renderLicenseBadge(data.liscense)}
+## Description 
+${data.description}
+${renderDeployedPage(data.deployment)}
 ## Table of Contents
 * [Description](#description)
 * [Instillation](#instillation)
 * [Usage](#usage)
 * [Contribution](#contribution)
+* [Tests](#tests)
 * [Questions](#questions)
-## Description 
-${data.description}
 ## Instillation 
 ${data.instillation}
 ## Usage 
 ${data.usage}
+${renderScreenshots(data.screenshots, altText)}
 ## Contribution
 ${data.contribution}
+## Tests
+${data.tests}
 
 ${renderLicenseSection(data.liscense, username)}
 

@@ -7,18 +7,21 @@ const generateMarkdown = require("./generateMarkdown");
 const questions = [
     "What is the project name? ",
     "How would you describe this application? ",
+    "Does this project have a deployed link? ",
     "What are the instillation instructions for this application? ",
     "How would a user use this application? ",
     "What are the contribution guidelines? ",
     "Are there any tests for this application? ",
     "What is your GitHub username? ",
     "What is your email address? ",
-    "What is your fullname? "
+    "What is your fullname? ",
+    "If including a screenshot what would the alt text be? ",
 ];
 
 const names = [
     "name",
     "description",
+    "deployment",
     "instillation",
     "usage",
     "contribution",
@@ -26,17 +29,40 @@ const names = [
     "username",
     "email",
     "fullname",
+    "alttext",
+]
+
+const defaults = [
+    "This project does not have a project name",
+    "There is no description for this project",
+    "This project does not have a deployed page",
+    "There are no instillation guidelines for this project",
+    "There are no description on how to use this application",
+    "There are no contribution guidelines for this project",
+    "There are no tests for this application",
+    "",
+    "",
+    "",
+    "there is no screenshot",
 ]
 
 // TODO: Create a function to write README file
 const questionArr = [];
 for (let i = 0; i < questions.length; i++)
 {
-    questionArr.push({
-        type: "input",
-        message: questions[i],
-        name: names[i],
-    })
+    questionArr.push(
+        {
+            type: "input",
+            message: questions[i],
+            name: names[i],
+            default: defaults[i],
+        },
+        {
+            type: "confirm",
+            message: "Are there any screenshots you would like to include? ",
+            name: "screenshots",
+            default: "",
+        })
 }
 
 
