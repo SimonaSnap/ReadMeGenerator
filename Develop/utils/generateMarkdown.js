@@ -117,7 +117,7 @@ function renderDeployedPage(deployment)
   }
 }
 
-function renderScreenshots(screenshots, altText)
+function renderScreenshots(screenshots, alttext)
 {
   if (screenshots == false)
   {
@@ -126,8 +126,8 @@ function renderScreenshots(screenshots, altText)
   else
   {
     return `
-![A picture of the deployed application](./assets/README%20example.PNG "${altText}")
-![A gif of the deployed application](./assets/Untitled_%20Apr%2022%2C%202022%203_36%20PM.gif "${altText}")
+![A picture of the deployed application](./assets/README%20example.PNG "${alttext}")
+![A gif of the deployed application](./assets/Untitled_%20Apr%2022%2C%202022%203_36%20PM.gif "${alttext}")
     `
   }
 }
@@ -135,10 +135,10 @@ function renderScreenshots(screenshots, altText)
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data)
 {
-  var altText = data.alttext;
+  var alttext = data.alttext;
   var username = data.fullname;
   return `# ${data.name}
-${renderLicenseBadge(data.liscense)}
+${renderLicenseBadge(data.license)}
 ## Description 
 ${data.description}
 ${renderDeployedPage(data.deployment)}
@@ -153,15 +153,15 @@ ${renderDeployedPage(data.deployment)}
 ${data.instillation}
 ## Usage 
 ${data.usage}
-${renderScreenshots(data.screenshots, altText)}
+${renderScreenshots(data.screenshots, alttext)}
 ## Contribution
 ${data.contribution}
 ## Tests
 ${data.tests}
 
-${renderLicenseSection(data.liscense, username)}
+${renderLicenseSection(data.license, username)}
 
-${renderLicenseLink(data.liscense)}
+${renderLicenseLink(data.license)}
 
 ## Questions
 If you have any further questions contact me here:

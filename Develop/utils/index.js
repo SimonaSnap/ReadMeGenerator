@@ -77,8 +77,8 @@ function init()
         .prompt([...questionArr,
         {
             type: "list",
-            message: "What liscense would you like? ",
-            name: "liscense",
+            message: "What license would you like? ",
+            name: "license",
             choices: ["MIT", "BSD 2-Clause License", "BSD 3-Clause License", "Boost Software License", "The Unlicense", "None"],
         }])
         .then(function (data)
