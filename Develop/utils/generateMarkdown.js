@@ -1,4 +1,6 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
+// i created an array with all the license descriptions/writings. some of the licenses will take several parts of the array to make the incertion of the year and also the user's
+//full name into the template literal easier
 var allLi = [
   "MIT License Copyright (c)", "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
   "BSD 2-Clause License Copyright (c)", "All rights reserved. Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.",
@@ -67,6 +69,8 @@ function renderLicenseLink(license)
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
+//this function takes two parameters, and those parameters have to be defined in generate markdown to work in here
+//the two parameters allow for me to place the user's full name into the license found at the bottom of the readme
 function renderLicenseSection(license, username)
 {
   if (license == "None")
@@ -125,6 +129,7 @@ function renderScreenshots(screenshots, alttext)
   }
   else
   {
+    //i may make the readme and then once i copy the created file over into a different repository all i would have to do is change the path of the image to one that is found in the new repository to finish everything off
     return `
 ![A picture of the deployed application](./assets/README%20example.PNG "${alttext}")
 ![A gif of the deployed application](./assets/Untitled_%20Apr%2022%2C%202022%203_36%20PM.gif "${alttext}")
@@ -135,6 +140,7 @@ function renderScreenshots(screenshots, alttext)
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data)
 {
+  //i define alttext and username here so that the functions above know that i want the user inputed information, otherwise it would be seen as undefined. in addition i can't do data.fullname in the functions above due to scope
   var alttext = data.alttext;
   var username = data.fullname;
   return `# ${data.name}
@@ -169,5 +175,7 @@ If you have any further questions contact me here:
  - GitHub [${data.username}](https://github.com/${data.username})
 `;
 }
+//there are red sections above in the template literal above, but that is the right spacing to create a bulleted list item in markdown
 
+//module.exports line below allows me to connect this file to the index.js file
 module.exports = generateMarkdown;

@@ -4,6 +4,7 @@ const fs = require("fs");
 const generateMarkdown = require("./generateMarkdown");
 
 // TODO: Create an array of questions for user input
+//also created an array of names and defualts to make sure all the parts of the input has corresponding inputs
 const questions = [
     "What is the project name? ",
     "How would you describe this application? ",
@@ -47,6 +48,7 @@ const defaults = [
 ]
 
 // TODO: Create a function to write README file
+//questionArr is what will be placed in the prompt part of the code, becuase the prompt does not care to have a for loop inside it
 const questionArr = [];
 for (let i = 0; i < questions.length; i++)
 {
@@ -70,6 +72,8 @@ for (let i = 0; i < questions.length; i++)
 // writeToFile;
 
 // TODO: Create a function to initialize app
+//prompt ...questionArr uses the spread to insert the arr i made above into inquirer, 
+//the then now takes all my inputs and inserts it into generate markdown and after running that file it will then write the final readme file
 function init()
 {
 
