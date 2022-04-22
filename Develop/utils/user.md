@@ -1,4 +1,4 @@
-# This project does not have a project name
+# lskadj
 [![PyPi license](https://badgen.net/pypi/license/pip/)](https://pypi.com/project/pip/)
 ## Description 
 There is no description for this project
@@ -14,7 +14,10 @@ There is no description for this project
 There are no instillation guidelines for this project
 ## Usage 
 There are no description on how to use this application
-![A screenshot of the application](./assets/Develop/README example.PNG "there is no screenshot")
+
+![A picture of the deployed HTML file](./assets/README%20example.PNG "there is no screenshot")
+![A picture of the deployed HTML file](./assets/Untitled_%20Apr%2022%2C%202022%203_36%20PM.gif "there is no screenshot")
+    
 ## Contribution
 There are no contribution guidelines for this project
 ## Tests
@@ -28,4 +31,5 @@ https://mit-license.org/
 
 ## Questions
 If you have any further questions contact me here:
-Email  or GitHub [](https://github.com/)
+ - Email 
+ - GitHub [](https://github.com/)

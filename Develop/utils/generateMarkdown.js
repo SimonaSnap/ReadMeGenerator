@@ -119,13 +119,16 @@ function renderDeployedPage(deployment)
 
 function renderScreenshots(screenshots, altText)
 {
-  if (screenshots == "No")
+  if (screenshots == false)
   {
     return ""
   }
   else
   {
-    return `![A screenshot of the application](./assets/Develop/README example.PNG "${altText}")`
+    return `
+![A picture of the deployed application](./assets/README%20example.PNG "${altText}")
+![A gif of the deployed application](./assets/Untitled_%20Apr%2022%2C%202022%203_36%20PM.gif "${altText}")
+    `
   }
 }
 
@@ -162,7 +165,8 @@ ${renderLicenseLink(data.liscense)}
 
 ## Questions
 If you have any further questions contact me here:
-Email ${data.email} or GitHub [${data.username}](https://github.com/${data.username})
+ - Email ${data.email}
+ - GitHub [${data.username}](https://github.com/${data.username})
 `;
 }
 
